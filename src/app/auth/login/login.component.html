@@ -1,1 +1,9 @@
-<p>login works!</p>
+<app-toolbar title="Login"></app-toolbar>
+
+<div class="container">
+  <form [formGroup]="loginForm" *ngIf="loginForm">
+    <app-input label="Email address" type="email" controlName="email"></app-input>
+    <app-input label="Password" type="password" controlName="password"></app-input>
+    <app-button text="Log in" [disabled]="!isFormValid" (click)="logIn()"></app-button>
+  </form>
+</div>

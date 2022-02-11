@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TeamRoutingModule } from './team-routing.module';
 import { TeamComponent } from './team.component';
+import { ToolbarModule } from 'src/app/components/toolbar/toolbar.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { TeamComponent } from './team.component';
   ],
   imports: [
     CommonModule,
-    TeamRoutingModule
+    TeamRoutingModule,
+    ToolbarModule
   ]
 })
 export class TeamModule { }

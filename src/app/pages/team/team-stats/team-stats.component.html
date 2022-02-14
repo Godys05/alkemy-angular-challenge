@@ -1,0 +1,14 @@
+<div class="team-stats row row-cols-1 row-cols-lg-2 g-3">
+  <div class="col">
+    <div class="stat-type border p-4">
+      <p class=" fs-6">The stat that defines your team is</p>
+      <p class="fw-bold fs-1">{{definitiveStat}}</p>
+    </div>
+  </div>
+  <div class="col">
+    <div class="stats border p-4">
+      <p class="fw-bold fs-3">Your team stats</p>
+      <app-powerstats [powerstats]="powerstats" *ngIf="powerstats"></app-powerstats>
+    </div>
+  </div>
+</div>

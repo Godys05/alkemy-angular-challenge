@@ -1,15 +1,25 @@
 <app-toolbar title="Your team"></app-toolbar>
 
 <div class="container">
-  <div class="team-members row row-cols-1 row-cols-lg-3 g-3">
-    <div class="col">
-      <div class="hero border p-4">
-        <button class="btn btn-outline-dark more-actions-button">
-          <i class="bi bi-three-dots-vertical"></i>
-        </button>
-        <img src="https://freesvg.org/img/kablam-Super-Hero-Flame.png" alt="">
-        <p class="fw-bold fs-3">Superhero name</p>
+  <app-team-stats [heroes]="heroes"></app-team-stats>
+
+  <div class="members p-4">
+    <p class="fs-1 fw-bold">Members</p>
+    <a class="add-hero" (click)="navigateToAddHero()">Add</a>
+  </div>
+
+  <div *ngIf="heroes.length !== 0; else placeholder">
+    <app-members [heroes]="heroes" (deleteHero)="deleteHero($event)"></app-members>
+  </div>
+
+  <ng-template #placeholder>
+    <div class="container heroes-placeholder row col-12 col-lg-6 align-self-center">
+      <div class="col-0 col-lg-6">
+      </div>
+      <div class="col-12 col-lg-6">
+        <p class="fs-4">There are no heroes in your team</p>
+        <button class="btn btn-primary col-12" (click)="navigateToAddHero()">Add members</button>
       </div>
     </div>
-  </div>
+  </ng-template>
 </div>

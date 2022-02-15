@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import Powerstats from '../powerstats/powerstats.definition';
 
 @Component({
@@ -6,7 +6,7 @@ import Powerstats from '../powerstats/powerstats.definition';
   templateUrl: './team-stats.component.html',
   styleUrls: ['./team-stats.component.scss']
 })
-export class TeamStatsComponent implements OnInit {
+export class TeamStatsComponent implements OnInit, OnChanges {
   @Input() heroes: any[] = [];
   powerstats: Powerstats | any;
   definitiveStat = '';
@@ -14,6 +14,10 @@ export class TeamStatsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.getTotalStats();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.getTotalStats();
   }
 

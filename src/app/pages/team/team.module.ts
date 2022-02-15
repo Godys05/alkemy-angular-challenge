@@ -8,6 +8,7 @@ import { MembersComponent } from './members/members.component';
 import { TeamStatsComponent } from './team-stats/team-stats.component';
 import { PowerstatsComponent } from './powerstats/powerstats.component';
 import { AddHeroComponent } from './add-hero/add-hero.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,9 @@ import { AddHeroComponent } from './add-hero/add-hero.component';
   imports: [
     CommonModule,
     TeamRoutingModule,
-    ToolbarModule
+    FormsModule,
+    ReactiveFormsModule,
+    ToolbarModule,
   ]
 })
 export class TeamModule { }

@@ -1,15 +1,16 @@
 <div class="team-members row row-cols-1 row-cols-lg-3 g-3">
   <div class="col" *ngFor="let hero of heroes">
     <div class="hero border p-4">
-      <button class="btn btn-outline-danger more-actions-button" (click)="onDeleteHero(hero.id)">
+      <button class="btn btn-outline-danger more-actions-button" (click)="onDeleteHero(hero.id)" *ngIf="!addMode">
         <i class="bi bi-trash"></i>
       </button>
 
       <img [src]="sanitizeHeroImage(hero.image.url)" alt="">
       <p class="fw-bold fs-3">{{hero.name}}</p>
-      <div class="stats">
+      <div class="stats" *ngIf="!addMode">
         <app-powerstats [powerstats]="hero.powerstats"></app-powerstats>
       </div>
+      <button class="btn btn-primary add" *ngIf="addMode" (click)="onAddHero(hero.id)">Add hero</button>
     </div>
   </div>
 </div>

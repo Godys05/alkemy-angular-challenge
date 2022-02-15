@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  team = new BehaviorSubject<any[]>([]);
+  team = new BehaviorSubject<any[]>(this.getTeam());
   team$ = this.team.asObservable();
 
   constructor() { }
@@ -17,6 +17,6 @@ export class DataService {
   }
 
   getTeam() {
-    return localStorage.getItem('team') ? JSON.parse(localStorage.getItem('team')!) : null;
+    return localStorage.getItem('team') ? JSON.parse(localStorage.getItem('team')!) : [];
   }
 }

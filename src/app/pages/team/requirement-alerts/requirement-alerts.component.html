@@ -1,0 +1,5 @@
+<app-alert *ngIf="this.badCount > 3" type="danger" header="Maximum villain count exceeded" body="You can and have to choose only 3 villan characters"></app-alert>
+<app-alert *ngIf="this.goodCount > 3" type="danger" header="Maximum hero count exceeded" body="You can and have to choose only 3 hero characters"></app-alert>
+<app-alert *ngIf="heroes.length < 6" type="warning" header="Team incompleted" [body]="'You have '+(6 - heroes.length)+' superheroes remaining'"></app-alert>
+<app-alert *ngIf="heroes.length > 6" type="danger" header="Team members exceeded" [body]="'You must have only 6 team members. Please remove ' + (heroes.length - 6) + 'members'"></app-alert>
+<app-alert *ngIf="heroes.length === 6 && badCount === 3 && goodCount === 3" type="success" header="Team members completed" body="You meet all the needed requirements for your team"></app-alert>

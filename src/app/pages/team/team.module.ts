@@ -9,6 +9,8 @@ import { TeamStatsComponent } from './team-stats/team-stats.component';
 import { PowerstatsComponent } from './powerstats/powerstats.component';
 import { AddHeroComponent } from './add-hero/add-hero.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlertModule } from 'src/app/components/alert/alert.module';
+import { RequirementAlertsComponent } from './requirement-alerts/requirement-alerts.component';
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TeamStatsComponent,
     PowerstatsComponent,
     AddHeroComponent,
+    RequirementAlertsComponent,
   ],
   imports: [
     CommonModule,
@@ -25,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     ToolbarModule,
+    AlertModule
   ]
 })
 export class TeamModule { }

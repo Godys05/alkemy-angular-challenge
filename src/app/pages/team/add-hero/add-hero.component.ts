@@ -19,11 +19,6 @@ export class AddHeroComponent implements OnInit {
     this.searchForm = new FormGroup({
       name: new FormControl(null, [Validators.required])
     });
-
-    this.dataService.team$.subscribe((value) => {
-      console.log(value);
-    });
-    
   }
 
   navigateBack(): void {
@@ -32,7 +27,6 @@ export class AddHeroComponent implements OnInit {
 
   onAddHero(heroId: string): void {
     const team = this.dataService.getTeam();
-    console.log(team);
     if (team) {
       this.dataService.setTeam([...team, this.foundHeroes.find(hero => hero.id === heroId) ]);
     }
@@ -91,7 +85,7 @@ export class AddHeroComponent implements OnInit {
           "relatives": "Damian Wayne (son), Dick Grayson (adopted son), Tim Drake (adopted son), Jason Todd (adopted son), Cassandra Cain (adopted ward)\nMartha Wayne (mother, deceased), Thomas Wayne (father, deceased), Alfred Pennyworth (former guardian), Roderick Kane (grandfather, deceased), Elizabeth Kane (grandmother, deceased), Nathan Kane (uncle, deceased), Simon Hurt (ancestor), Wayne Family"
         },
         "image": {
-          "url": "httpss://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
+          "url": "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
         }
       },
       {
@@ -141,7 +135,7 @@ export class AddHeroComponent implements OnInit {
           "relatives": "Damian Wayne (son), Dick Grayson (adopted son), Tim Drake (adopted son), Jason Todd (adopted son), Cassandra Cain (adopted ward)\nMartha Wayne (mother, deceased), Thomas Wayne (father, deceased), Alfred Pennyworth (former guardian), Roderick Kane (grandfather, deceased), Elizabeth Kane (grandmother, deceased), Nathan Kane (uncle, deceased), Simon Hurt (ancestor), Wayne Family"
         },
         "image": {
-          "url": "httpss://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
+          "url": "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
         }
       }
       ];

@@ -49,22 +49,26 @@ export class TeamStatsComponent implements OnInit, OnChanges {
   }
 
   getAvgMeasures(): void {
+    let weightAvg = 0;
+    let heightAvg = 0;
     this.heroes.forEach(hero => {
       const weight = parseFloat(hero.appearance.weight[1]);
       const height = parseFloat(hero.appearance.height[1]);
-      if (this.weightAvg !== 0) {
-        this.weightAvg = (this.weightAvg + weight) / 2;
+      if (weightAvg !== 0) {
+        weightAvg = (weightAvg + weight) / 2;
       }
       else {
-        this.weightAvg = weight;
+        weightAvg = weight;
       }
-      if (this.heightAvg !== 0) {
-        this.heightAvg = (this.heightAvg + height) / 2;
+      if (heightAvg !== 0) {
+        heightAvg = (heightAvg + height) / 2;
       }
       else {
-        this.heightAvg = height;
+        heightAvg = height;
       }
     });
+    this.weightAvg = weightAvg;
+    this.heightAvg = heightAvg;
   }
 
   getDefinitiveStat(): void {

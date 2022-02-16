@@ -24,39 +24,53 @@
         <div class="modal-body">
           <div class="powerstats" *ngIf="selectedHero">
             <div class="power">
-              <p>⚖</p>
-              <p>Weight (in kg)</p>
+              <div class="header">
+                <p>⚖</p>
+                <p>Weight (in kg)</p>
+              </div>
               <p class="badge alert-primary">{{selectedHero.appearance.weight[1]}}</p>
             </div>
             <div class="power">
-              <p>📏</p>
-              <p>Height (in cm)</p>
+              <div class="header">
+                <p>📏</p>
+                <p>Height (in cm)</p>
+              </div>
               <p class="badge alert-primary">{{selectedHero.appearance.height[1]}}</p>
             </div>
             <div class="power">
               <!-- It should be 'sex' instead of 'gender' here though -->
-              <p>{{selectedHero.appearance.gender === 'Male' ? '🙍‍♂️' : '🙍'}}</p>
-              <p>Name</p>
+              <div class="header">
+                <p>{{selectedHero.appearance.gender === 'Male' ? '🙍‍♂️' : '🙍'}}</p>
+                <p>Name</p>
+              </div>
               <p class="badge alert-primary">{{selectedHero.biography['full-name']}}</p>
             </div>
             <div class="power">
-              <p>{{selectedHero.appearance.gender === 'Male' ? '🦸‍♂️' : '🦸‍♀️'}}</p>
-              <p>A.K.A</p>
+              <div class="header">
+                <p>{{selectedHero.appearance.gender === 'Male' ? '🦸‍♂️' : '🦸‍♀️'}}</p>
+                <p>A.K.A</p>
+              </div>
               <p class="badge alert-primary">{{selectedHero.name}}</p>
             </div>
             <div class="power">
-              <p>👁</p>
-              <p>Eye color</p>
+              <div class="header">
+                <p>👁</p>
+                <p>Eye color</p>
+              </div>
               <p class="badge alert-primary">{{selectedHero.appearance['eye-color']}}</p>
             </div>
             <div class="power">
-              <p>🧔</p>
-              <p>Hair color</p>
+              <div class="header">
+                <p>🧔</p>
+                <p>Hair color</p>
+              </div>
               <p class="badge alert-primary">{{selectedHero.appearance['hair-color']}}</p>
             </div>
             <div class="power">
-              <p>💼</p>
-              <p>Base (s)</p>
+              <div class="header">
+                <p>💼</p>
+                <p>Base (s)</p>
+              </div>
               <p class="badge alert-primary text-wrap">{{selectedHero.work.base}}</p>
             </div>
           </div>

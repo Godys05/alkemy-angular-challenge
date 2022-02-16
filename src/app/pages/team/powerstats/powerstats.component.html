@@ -29,4 +29,14 @@
     <p>Combat</p>
     <p class="badge alert-primary">{{powerstats.combat}}</p>
   </div>
+  <div class="power" *ngIf="weightAvg">
+    <p>⚖</p>
+    <p>Weight (avg in kg)</p>
+    <p class="badge alert-primary">{{weightAvg}}</p>
+  </div>
+  <div class="power" *ngIf="heightAvg">
+    <p>📏</p>
+    <p>Height (avg in cm)</p>
+    <p class="badge alert-primary">{{heightAvg}}</p>
+  </div>
 </div>

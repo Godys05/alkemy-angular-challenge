@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isFormValid = false;
 
-  constructor() {
+  constructor(private sessionService: SessionService,
+              private router: Router) {
   }
   
   initForm(): void {
@@ -19,8 +22,6 @@ export class LoginComponent implements OnInit {
       password: new FormControl(null, [Validators.required, Validators.minLength(1)])
     });
     this.loginForm.valueChanges.subscribe(value => {
-      console.log(this.loginForm.value)
-      console.log(this.loginForm.valid)
       if (this.loginForm.valid) {
         this.isFormValid = true;
       }
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit {
   async logIn(): Promise<void> {
     if (this.loginForm.valid) {
       try {
-        console.log(this.loginForm.value);
+        await this.sessionService.login(this.loginForm.value);
+        this.router.navigate(['team']);
       }
       catch(error) {
         console.log(error);

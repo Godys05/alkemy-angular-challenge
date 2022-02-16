@@ -12,7 +12,58 @@
   </div>
 
   <div *ngIf="heroes.length !== 0; else placeholder">
-    <app-members [heroes]="heroes" (deleteHero)="deleteHero($event)"></app-members>
+    <app-members [heroes]="heroes" (deleteHero)="deleteHero($event)" (seeDetailHero)="openHeroDetail($event)"></app-members>
+  </div>
+
+  <div class="modal" [ngStyle]="{'display': modalDisplay}" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Hero detail</h4>
+        </div>
+        <div class="modal-body">
+          <div class="powerstats" *ngIf="selectedHero">
+            <div class="power">
+              <p>⚖</p>
+              <p>Weight (in kg)</p>
+              <p class="badge alert-primary">{{selectedHero.appearance.weight[1]}}</p>
+            </div>
+            <div class="power">
+              <p>📏</p>
+              <p>Height (in cm)</p>
+              <p class="badge alert-primary">{{selectedHero.appearance.height[1]}}</p>
+            </div>
+            <div class="power">
+              <!-- It should be 'sex' instead of 'gender' here though -->
+              <p>{{selectedHero.appearance.gender === 'Male' ? '🙍‍♂️' : '🙍'}}</p>
+              <p>Name</p>
+              <p class="badge alert-primary">{{selectedHero.biography['full-name']}}</p>
+            </div>
+            <div class="power">
+              <p>{{selectedHero.appearance.gender === 'Male' ? '🦸‍♂️' : '🦸‍♀️'}}</p>
+              <p>A.K.A</p>
+              <p class="badge alert-primary">{{selectedHero.name}}</p>
+            </div>
+            <div class="power">
+              <p>👁</p>
+              <p>Eye color</p>
+              <p class="badge alert-primary">{{selectedHero.appearance['eye-color']}}</p>
+            </div>
+            <div class="power">
+              <p>🧔</p>
+              <p>Hair color</p>
+              <p class="badge alert-primary">{{selectedHero.appearance['hair-color']}}</p>
+            </div>
+            <div class="power">
+              <p>💼</p>
+              <p>Base (s)</p>
+              <p class="badge alert-primary text-wrap">{{selectedHero.work.base}}</p>
+            </div>
+          </div>
+          <button class="btn btn-primary" (click)="closeHeroDetail()">Close detail</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <ng-template #placeholder>

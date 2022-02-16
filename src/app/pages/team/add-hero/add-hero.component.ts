@@ -67,11 +67,11 @@ export class AddHeroComponent implements OnInit {
           "race": "Human",
           "height": [
             "6'2",
-            "188 cm"
+            "169 cm"
           ],
           "weight": [
             "210 lb",
-            "95 kg"
+            "105 kg"
           ],
           "eye-color": "blue",
           "hair-color": "black"

@@ -9,6 +9,8 @@ import Powerstats from '../powerstats/powerstats.definition';
 export class TeamStatsComponent implements OnInit, OnChanges {
   @Input() heroes: any[] = [];
   powerstats: Powerstats | any;
+  weightAvg = 0;
+  heightAvg = 0;
   definitiveStat = '';
 
   constructor() { }
@@ -43,6 +45,26 @@ export class TeamStatsComponent implements OnInit, OnChanges {
     }, stats);
     
     this.getDefinitiveStat();
+    this.getAvgMeasures();
+  }
+
+  getAvgMeasures(): void {
+    this.heroes.forEach(hero => {
+      const weight = parseFloat(hero.appearance.weight[1]);
+      const height = parseFloat(hero.appearance.height[1]);
+      if (this.weightAvg !== 0) {
+        this.weightAvg = (this.weightAvg + weight) / 2;
+      }
+      else {
+        this.weightAvg = weight;
+      }
+      if (this.heightAvg !== 0) {
+        this.heightAvg = (this.heightAvg + height) / 2;
+      }
+      else {
+        this.heightAvg = height;
+      }
+    });
   }
 
   getDefinitiveStat(): void {

@@ -8,6 +8,8 @@ import Powerstats from './powerstats.definition';
 })
 export class PowerstatsComponent implements OnInit {
   @Input() powerstats: Powerstats;
+  @Input() weightAvg: number;
+  @Input() heightAvg: number;
 
   constructor() { }
 

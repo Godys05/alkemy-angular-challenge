@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 
@@ -26,7 +26,6 @@ export class RequirementAlertsComponent implements OnInit, OnDestroy {
   getBalanceCount(): void {
     this.goodCount = 0;
     this.badCount = 0;
-    console.log(this.heroes);
     this.heroes.forEach((hero: any) => {
       hero.biography.alignment === 'good' ? this.goodCount++ : this.badCount++;
     });

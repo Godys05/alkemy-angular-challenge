@@ -10,6 +10,8 @@ import { DataService } from 'src/app/services/data.service';
 export class TeamComponent implements OnInit, OnChanges {
 
   heroes: any[] = [];
+  modalDisplay = 'none';
+  selectedHero: any;
 
   constructor(private router: Router,
               private dataService: DataService) { }
@@ -21,7 +23,6 @@ export class TeamComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
   }
 
   deleteHero(heroId: string): void {
@@ -31,6 +32,15 @@ export class TeamComponent implements OnInit, OnChanges {
 
   navigateToAddHero(): void {
     this.router.navigate(['team', 'heroes', 'add']);
+  }
+
+  openHeroDetail(heroId: string): void {
+    this.modalDisplay = 'block';
+    this.selectedHero = this.heroes.find(hero => hero.id === heroId);
+  }
+
+  closeHeroDetail(): void {
+    this.modalDisplay = 'none';
   }
 
 }

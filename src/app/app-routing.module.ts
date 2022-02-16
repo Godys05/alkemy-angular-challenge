@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddHeroComponent } from './pages/team/add-hero/add-hero.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -8,13 +8,14 @@ const routes: Routes = [
     loadChildren: () => import('./auth/login/login.module').then(m => m.LoginModule)
   },
   {
-    path: 'team',
-    loadChildren: () => import('./pages/team/team.module').then(m => m.TeamModule)
-  },
-  {
     path: '',
     redirectTo: 'team',
     pathMatch: 'full'
+  },
+  {
+    path: 'team',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/team/team.module').then(m => m.TeamModule)
   }
 ];
 

@@ -1,6 +1,28 @@
 .container {
   margin-bottom: 3rem;
 
+  .modal {
+    scroll-behavior: auto;
+    overflow-y: auto;
+
+    .powerstats {
+      width: 100%;
+      margin-top: 1rem;
+      .power {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+
+        .badge {
+          width: fit-content;
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+
   .members {
     display: flex;
     flex-direction: row;

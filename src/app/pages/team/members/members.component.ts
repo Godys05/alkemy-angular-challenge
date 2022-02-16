@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-members',
@@ -12,9 +11,9 @@ export class MembersComponent implements OnInit {
   @Input() addMode = false;
   @Output() deleteHero = new EventEmitter<string>();
   @Output() addHero = new EventEmitter<string>();
+  @Output() seeDetailHero = new EventEmitter<string>();
 
-  constructor(private sanitizer: DomSanitizer,
-              private dataService: DataService) { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     
@@ -30,6 +29,9 @@ export class MembersComponent implements OnInit {
 
   onAddHero(heroId: string): void {
     this.addHero.emit(heroId);
+  }
+  onSeeDetailHero(heroId: string): void {
+    this.seeDetailHero.emit(heroId);
   }
 
 }

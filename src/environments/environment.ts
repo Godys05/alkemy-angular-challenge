@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  LOGIN_ENDPOINT: 'http://challenge-react.alkemy.org/'
+  LOGIN_ENDPOINT: 'http://challenge-react.alkemy.org/',
+  API_KEY: '10227816847035198',
+  API_URL: 'https://superheroapi.com/api'
 };
 
 /*

@@ -9,6 +9,7 @@
       <button class="btn btn-outline-dark" type="button" id="button-addon2" (click)="searchHeroes()"><i class="bi bi-search"></i></button>
     </div>
 
-    <app-members [heroes]="foundHeroes" [addMode]="true" (addHero)="onAddHero($event)"></app-members>
+    <app-members [heroes]="foundHeroes" [addMode]="true" (addHero)="onAddHero($event)" *ngIf="foundHeroes && foundHeroes.length !== 0"></app-members>
+    <p class="fs-3 center" *ngIf="foundHeroes && foundHeroes.length === 0">There are no superheroes that match your search</p>
   </div>
 </div>

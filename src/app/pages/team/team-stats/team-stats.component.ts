@@ -35,12 +35,47 @@ export class TeamStatsComponent implements OnInit, OnChanges {
     }
     this.powerstats = totalPowerstats.reduce((prev, current) => {
       return {
-        intelligence: (parseInt(prev.intelligence) + parseInt(current.intelligence)).toString(),
-        strength: (parseInt(prev.strength) + parseInt(current.strength)).toString(),
-        speed: (parseInt(prev.speed) + parseInt(current.speed)).toString(),
-        durability: (parseInt(prev.durability) + parseInt(current.durability)).toString(),
-        power: (parseInt(prev.power) + parseInt(current.power)).toString(),
-        combat: (parseInt(prev.combat) + parseInt(current.combat)).toString(),
+        intelligence: 
+        isNaN(current.intelligence)
+        ?
+        prev.intelligence
+        :
+        (parseInt(prev.intelligence) + parseInt(current.intelligence)).toString(),
+
+        strength:
+        isNaN(current.strength)
+        ?
+        prev.strength
+        :
+        (parseInt(prev.strength) + parseInt(current.strength)).toString(),
+
+        speed:
+        isNaN(current.speed)
+        ?
+        prev.speed
+        :
+        (parseInt(prev.speed) + parseInt(current.speed)).toString(),
+
+        durability:
+        isNaN(current.durability)
+        ?
+        prev.durability
+        :
+        (parseInt(prev.durability) + parseInt(current.durability)).toString(),
+
+        power:
+        isNaN(current.power)
+        ?
+        prev.power
+        :
+        (parseInt(prev.power) + parseInt(current.power)).toString(),
+
+        combat:
+        isNaN(current.combat)
+        ?
+        prev.combat
+        :
+        (parseInt(prev.combat) + parseInt(current.combat)).toString(),
       };
     }, stats);
     

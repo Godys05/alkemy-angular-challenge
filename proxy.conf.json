@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://superheroapi.com/api/10227816847035198",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}
